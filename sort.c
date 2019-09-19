@@ -25,7 +25,7 @@ void BubbleSort(char** x, int nums){
         }
         
     }
-    DisplayStr(x, nums, "/n 정열 후");
+    DisplayStr(x, nums, "\n 정열 후");
 
 }
 
