@@ -6,16 +6,11 @@ Bubble sorting in c
 ### 입력예시!
 
 apple 
-
 grape
-
 melon
-
 kiwi
-
 banana
 
-potato
 
 ### 출력예시!
 
