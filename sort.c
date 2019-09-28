@@ -1,3 +1,4 @@
+//2019-09-29
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -16,8 +17,8 @@ input_name(char** arr) {
 
 	gets(string);
 
-	token = strtok(string, " "); //¹®ÀÚ¿­ ºÐ¸®¿ë(½ºÆäÀÌ½º ±âÁØÀ¸·Î ´Ü¾î ºÐ¸®ÇÏ±â À§ÇÔ)
-	arr[0] = _strdup(token); //ÀÔ·Â°ª
+	token = strtok(string, " "); //ë¬¸ìžì—´ ë¶„ë¦¬ìš©(ìŠ¤íŽ˜ì´ìŠ¤ ê¸°ì¤€ìœ¼ë¡œ ë‹¨ì–´ ë¶„ë¦¬í•˜ê¸° ìœ„í•¨)
+	arr[0] = _strdup(token); //ìž…ë ¥ê°’
 	arr_size = 1;
 
 	do {
@@ -32,22 +33,22 @@ input_name(char** arr) {
 
 int main()
 {
-	char** name; //2Â÷¿ø ¹è¿­
+	char** name; //2ì°¨ì› ë°°ì—´
 	int name_size;
 	int i;
 
 	name = (char**)malloc(sizeof(char*) * MAX_SIZE);
 	name_size = input_name(name);
 
-	qsort((void*)name, name_size, sizeof(name[0]), convert_string); //qsort ÇÔ¼ö ÀÌ¿ë
+	qsort((void*)name, name_size, sizeof(name[0]), convert_string); //qsort í•¨ìˆ˜ ì´ìš©
 
-	printf("Á¤·Ä °á°ú ----> ");
+	printf("ì •ë ¬ ê²°ê³¼ ----> ");
 	for (i = 0; i < name_size; i++)
 		printf("%s ", name[i]);
 	
-	/*ÀÔ·Â ¿¹½Ã
+	/*ìž…ë ¥ ì˜ˆì‹œ
 	   apple kiwi banana grape*/
-	/*Ãâ·Â ¿¹½Ã
+	/*ì¶œë ¥ ì˜ˆì‹œ
 	   apple banana grape kiwi*/
 
 	free(name);
