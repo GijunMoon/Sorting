@@ -1,40 +1,56 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
-void DisplayStr(char** x, int nums, char* message){
-    int i;
-    puts(message);
+#define MAX_SIZE 10
 
-    for(i = 0; i < nums; i++){
-        printf(" [%d]ë²ˆì§¸ ì´ë¦„ --> %s \n", i, *(x+i));
-    }
+int convert_string(const void* one, const void* other)
+{
+	return (strcmp(*(char**)one, *(char**)other));
 }
 
-void BubbleSort(char** x, int nums){
-    int i, j;
-    char* tmp;
+input_name(char** arr) {
+	char string[200];
+	char* token;
+	int arr_size;
 
-    for(i=0; i < nums-1; i++){
-        for (j=0; j < nums-1-i; j++)
-        {
-            if(strcmp(*(x+j), *(x+j+1)) > 0){
-                tmp = *(x+j);
-                *(x+j) = *(x+j+1);
-                *(x+j+1) = tmp;
-            }
-        }
-        
-    }
-    DisplayStr(x, nums, "\n ì •ì—´ í›„");
+	gets(string);
 
+	token = strtok(string, " "); //¹®ÀÚ¿­ ºÐ¸®¿ë(½ºÆäÀÌ½º ±âÁØÀ¸·Î ´Ü¾î ºÐ¸®ÇÏ±â À§ÇÔ)
+	arr[0] = _strdup(token); //ÀÔ·Â°ª
+	arr_size = 1;
+
+	do {
+		token = strtok(NULL, " "); 
+		if (token == NULL) //NULL
+			break;
+		arr[arr_size++] = _strdup(token);
+	} while (1);
+
+	return arr_size;
 }
 
-int main(){
-    char* strs[5] = {"apple", "grape", "mellon", "banana", "kiwi"};
-    int n = sizeof(strs)/sizeof(char*);
+int main()
+{
+	char** name; //2Â÷¿ø ¹è¿­
+	int name_size;
+	int i;
 
-    DisplayStr(strs, n, "ì›ë³¸");
-    BubbleSort(strs, n);
+	name = (char**)malloc(sizeof(char*) * MAX_SIZE);
+	name_size = input_name(name);
 
-    return 0;
+	qsort((void*)name, name_size, sizeof(name[0]), convert_string); //qsort ÇÔ¼ö ÀÌ¿ë
+
+	printf("Á¤·Ä °á°ú ----> ");
+	for (i = 0; i < name_size; i++)
+		printf("%s ", name[i]);
+	
+	/*ÀÔ·Â ¿¹½Ã
+	   apple kiwi banana grape*/
+	/*Ãâ·Â ¿¹½Ã
+	   apple banana grape kiwi*/
+
+	free(name);
+
+	return 0;
 }
