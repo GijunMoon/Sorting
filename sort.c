@@ -15,17 +15,17 @@ input_name(char** arr) {
 	char* token;
 	int arr_size;
 
-	gets(string);
+	fgets(200, string, stdin);
 
 	token = strtok(string, " "); //문자열 분리용(스페이스 기준으로 단어 분리하기 위함)
-	arr[0] = _strdup(token); //입력값
+	arr[0] = strdup(token); //입력값
 	arr_size = 1;
 
 	do {
 		token = strtok(NULL, " "); 
 		if (token == NULL) //NULL
 			break;
-		arr[arr_size++] = _strdup(token);
+		arr[arr_size++] = strdup(token);
 	} while (1);
 
 	return arr_size;
