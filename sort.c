@@ -15,7 +15,7 @@ input_name(char** arr) {
 	char* token;
 	int arr_size;
 
-	fgets(200, string, stdin);
+	fgets(string, 200, stdin);
 
 	token = strtok(string, " "); //문자열 분리용(스페이스 기준으로 단어 분리하기 위함)
 	arr[0] = strdup(token); //입력값
