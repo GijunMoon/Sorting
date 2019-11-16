@@ -1,6 +1,7 @@
 ## Qsort을 이용한 소팅을 C에서 구현.
 
 ### 입력예시!
+4
 
 apple kiwi banana grape
 
