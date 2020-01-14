@@ -34,13 +34,13 @@ int main(void) {
 	return 0;
 }
 
-void Bubble_string(char** inputstr, int n)
+void Bubble_string(char** inputstr, int n) 
 {
 	int i, j;
 	for (i = 0; i < n - 1; i++) {
 		for (j = 0; j < n - i - 1; j++) {
 			if (strcmp(inputstr[j], inputstr[j + 1]) > 0) {
-				char* temp;
+				char* temp; //TODO : 포인터로 바꾸기
 				temp = (char*)calloc(30, sizeof(char));
 				strcpy(temp, inputstr[j]);
 				strcpy(inputstr[j], inputstr[j + 1]);
